@@ -1,15 +1,15 @@
 //
 //  Project_1_Challenges.swift
-//  WeSplit
 //
 //  Created by Dinh Huynh Chanh from 26/02/2023 to 27/02/2023.
-//
+//  
+//  This is my project of creating a conversion app that gives the user option to choose 3 different conversion types: temperature, time, and distance.
+//  For now, the UI is quite raw-looking but in future projects, it will look much better. So, stay tuned!
 
 import SwiftUI
 
 struct Project_1_Challenges: View {
     @State private var inputUnit = 0.0
-//    @State private var outputUnit = 0.0
     @State private var conversionType = "Temperature"
     @State private var selectedInputUnit = "°C"
     @State private var selectedOutputUnit = "°C"
