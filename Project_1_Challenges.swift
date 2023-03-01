@@ -1,15 +1,15 @@
 //
 //  Project_1_Challenges.swift
-//  WeSplit
 //
 //  Created by Dinh Huynh Chanh from 26/02/2023 to 27/02/2023.
 //
+//  This is a unit converter that has 3 types of conversion units: temperature, time, and distance.
+//  The user can choose whichever they like and the UI is, for me, still quite raw but in the upcoming projects, it will look better :)
 
 import SwiftUI
 
 struct Project_1_Challenges: View {
     @State private var inputUnit = 0.0
-//    @State private var outputUnit = 0.0
     @State private var conversionType = "Temperature"
     @State private var selectedInputUnit = "°C"
     @State private var selectedOutputUnit = "°C"
