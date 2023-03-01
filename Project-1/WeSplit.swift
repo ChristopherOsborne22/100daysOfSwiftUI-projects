@@ -1,6 +1,10 @@
-//  ContentView.swift
-//  WeSplit
-//  Created by Dinh Huynh Chanh from 11/02/2023 to 26/02/2023
+//
+//  Project_1_Challenges.swift
+//
+//  Created by Dinh Huynh Chanh from 26/02/2023 to 27/02/2023.
+//
+//  This is a unit converter that has 3 types of conversion units: temperature, time, and distance.
+//  The user can choose whichever they like and the UI is, for me, still quite raw but in the upcoming projects, it will look better :)
 
 import SwiftUI
 
