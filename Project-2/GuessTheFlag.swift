@@ -3,17 +3,21 @@
 //  GuessTheFlag
 //
 //  Created by Dinh Huynh Chanh from 28/02/2023 to 9/3/2023.
-//  This is the project 2 of Paul Hudson's 100 Days of SwiftUI. 
+//
 
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingScore = false
-    // showing alert
+    @State private var continueGameAlert= false
+    // shows whether the user chooses to continue game or not
+    @State private var endOfGame = false
+    // this will be set to true after 8 games, which is the end of this game
     @State private var scoreTitle = ""
     // checking if the user's choice is "Correct" or "Wrong"
     @State private var scoreCount = 0
     // user's score count
+    @State private var gameCount = 0
+    // number of games played by the user
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Monaco", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     // shuffled() for shuffling the arr after each preview
@@ -45,13 +49,13 @@ struct ContentView: View {
                     
                     ForEach(0..<3) { number in
                         Button {
-                            showingScore = true
+                            continueGameAlert = true
                             
                             if number == correctAnswer {
-                                scoreTitle = "Correct! You are so good!"
+                                scoreTitle = "Correct! \n You are so good!"
                                 scoreCount += 1
                             } else {
-                                scoreTitle = "Wrong! Better luck next time."
+                                scoreTitle = "Wrong! \n That's the flag of \(countries[number])."
                             }
                         } label: {
                             Image(countries[number])
@@ -76,11 +80,26 @@ struct ContentView: View {
             }
         }
         // alert at the end of ZStack
-        .alert(scoreTitle, isPresented: $showingScore) {
-            Button("Continue", action: continueGame)
+        .alert(scoreTitle, isPresented: $continueGameAlert) {
+            Button("Continue") {
+                continueGame()
+                gameCount += 1
+                
+                if gameCount == 8 {
+                    endOfGame = true
+                }
+            }
         }
-        // alert shows whether the user chooses correct,
-        // continues the game, and displays the score
+        // alert shows whether the user chooses correct answer or not,
+        // and continues the game.
+        // When the user presses "Continue" button, the game will go on
+        
+        .alert("Congratulations!", isPresented: $endOfGame) {
+            Button("Replay", action: replayGame)
+        } message: {
+            Text("You've played 8 games. \n Here is your score: \(scoreCount).")
+        }
+        // alert shows that the user has played 8 games, and displays the total score
     }
     
     func continueGame() {
@@ -89,10 +108,19 @@ struct ContentView: View {
         // we can change the above values because they are
         // @State properties
     }
+    
+    func replayGame() {
+        countries.shuffle()
+        correctAnswer = Int.random(in: 0...2)
+        gameCount = 0
+        scoreCount = 0
+        endOfGame = false
+    }
+    // replayGame() is used to reset the game's properties to default
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
+}   
