@@ -1,4 +1,4 @@
-# 100daysOfSwiftUI-projects
+# 100DaysOfSwiftUI-projects
 This is my workspace for 19 projects on 100 Days of SwifUI by Paul Hudson (link: https://www.hackingwithswift.com/100/swiftui). 
 This is where I will show my best efforts at completing the projects and challenges presented by Paul Hudson.
 And, if possible, I will add some of my touches to make the projects look more me-like.
