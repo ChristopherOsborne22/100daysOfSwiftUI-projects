@@ -37,7 +37,7 @@ struct ContentView: View {
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                         // No end date means that the time goes to infinity
                     }
-                    // This is new and it helps align the button in Form View to be in the middle. Using frame and alignment won't help.
+                    // This is new and it helps align the date picker in Form View to be in the middle. Using frame and alignment won't help.
                 } header: {
                     Text("Wake up time")
                         .font(.headline)
@@ -57,7 +57,7 @@ struct ContentView: View {
                         }
                     }
                 } header: {
-                    Text("Amount Of Coffee Cups Taken")
+                    Text("Number Of Coffee Cups Taken")
                         .font(.headline)
                 }
                 
