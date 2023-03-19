@@ -12,6 +12,7 @@
 //  Update on 13/3/2023 (15 minutes later) - The problem is indeed in the Int.random choices and switching to shuffled() is the key. And now, the gameLogic works fine
 
 //  !!!: change the UI of this app please! It looks not that ugly but not beautiful enough to be published
+//
 
 import SwiftUI
 
